@@ -7,7 +7,10 @@ function App() {
 
 
   return (
-    <Body />
+    <>
+     <Body />
+     </>
+   
   )
 }
 
