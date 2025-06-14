@@ -72,12 +72,10 @@ function Login() {
                   })
               );
 
-              Navigate('/browse')
-
             }).catch((error) => {
               setErrorMessage(error)
             });
-          console.log(user)
+          
 
           // ...
         })
