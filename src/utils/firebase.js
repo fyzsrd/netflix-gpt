@@ -2,6 +2,9 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyAhWgKbuHh0GqZzN4p-5Ya5nV-sScGNmyk",
   authDomain: "netflixgpt-f93db.firebaseapp.com",
@@ -17,3 +20,4 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 export const auth=getAuth()
+

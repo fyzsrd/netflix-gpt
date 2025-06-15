@@ -3,6 +3,7 @@ import Login from './Login'
 import Browse from './Browse'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Deteails from './Deteails';
+import WishlistPage from './WishlistPage';
 
 
 function Body() {
@@ -22,6 +23,10 @@ function Body() {
         {
             path:'/movie/:movieId',
             element: <Deteails />
+        },
+        {
+            path:'/wishlist',
+            element: <WishlistPage />
         }
     ]);
 
