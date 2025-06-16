@@ -9,51 +9,61 @@ import Header from './Header';
 import FavoriteButton from './FavoriteButton';
 
 function Deteails() {
-    useNowPlayingMovies();
+  useNowPlayingMovies();
 
-    const { movieId } = useParams();
-    const fallbackId = '1376434';
+  const { movieId } = useParams();
+  const fallbackId = '1376434';
 
-    const movies = useSelector((store) => store.movies.nowPlayingMovies);
-    const activeMovieId = parseInt(movieId || fallbackId);
-    const movie = movies?.find((m) => m.id === activeMovieId);
+  const movies = useSelector((store) => store.movies.nowPlayingMovies);
+  const activeMovieId = parseInt(movieId || fallbackId);
+  const movie = movies?.find((m) => m.id === activeMovieId);
 
-    if (!movies || movies.length === 0) {
-        return <div className="text-white p-4">Loading movie data...</div>;
-    }
+  if (!movies || movies.length === 0) {
+    return <div className="text-white p-4">Loading movie data...</div>;
+  }
 
-    if (!movie) {
-        return <div className="text-white p-4">Movie not found.</div>;
-    }
+  if (!movie) {
+    return <div className="text-white p-4">Movie not found.</div>;
+  }
 
-    const { original_title, overview, id, poster_path, release_date, vote_average } = movie;
+  const { original_title, overview, id, poster_path, release_date, vote_average } = movie;
 
-    return (
-        <div>
-            <Header />
-            <div className="relative">
-                <FavoriteButton title={original_title} overview={overview} buttonContent={activeMovieId} movieId={movieId} />
-                <VideoBackground movieId={id}  />
-                
+  return (
+    <div className="bg-black min-h-screen text-white">
+      <Header />
 
+      <div className="relative">
+        <FavoriteButton
+          title={original_title}
+          overview={overview}
+          buttonContent={activeMovieId}
+          movieId={movieId}
+        />
+        <VideoBackground movieId={id} />
+      </div>
 
-
-            </div>
-            <div className='bg-black text-white flex justify-between' >
-                <div className='pl-10'>
-                    <h1 className="text-2xl font-bold ">Movie Details: {original_title}</h1>
-                    <img src={IMG_CDN_URL + poster_path} alt={original_title} className="my-4 w-64" />
-                </div>
-
-                <div className='pr-20 pl-10'>
-                    <p>{overview}</p>
-                    <p className='mt-3'>Release Date: {release_date}</p>
-                    <p className='mt-3'>Rating: {vote_average}/10</p>
-                </div>
-            </div>
-            
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 px-6 md:px-12 py-8">
+        {/* Poster and Title */}
+        <div className="flex-shrink-0 text-center lg:text-left">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
+            {original_title}
+          </h1>
+          <img
+            src={IMG_CDN_URL + poster_path}
+            alt={original_title}
+            className="mx-auto lg:mx-0 w-40 sm:w-48 md:w-64 rounded shadow-md"
+          />
         </div>
-    );
+
+        {/* Overview and Details */}
+        <div className="text-sm sm:text-base md:text-lg max-w-xl">
+          <p className="mb-4">{overview}</p>
+          <p className="mb-2">📅 <strong>Release Date:</strong> {release_date}</p>
+          <p className="mb-2">⭐ <strong>Rating:</strong> {vote_average}/10</p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Deteails;

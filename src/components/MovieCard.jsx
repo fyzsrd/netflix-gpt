@@ -9,7 +9,7 @@ function MovieCard({posterPath,movieId}) {
         navigate(`/movie/${movieId}`)
     }
   return (
-    <div className='w-48 pr-4 cursor-pointer' onClick={handleClick}>
+    <div className='xl:w-48 pr-4 cursor-pointer md: w-35 sm: w-10' onClick={handleClick}>
         <img className=''
          src={IMG_CDN_URL  + posterPath} alt="movielist" />
     </div>
