@@ -22,11 +22,11 @@ function WishlistContainer({ movieIDs, clearMovieIDs }) {
                 <p className="text-lg">No favorites added yet.</p>
             ) : (
                 <>
-                    <ul className="list-disc pl-5 mb-6">
+                    {/* <ul className="list-disc pl-5 mb-6">
                         {movieIDs.map((id, index) => (
-                            <li key={index}>{id}</li>
+                            <li key={index}>{title}</li>
                         ))}
-                    </ul>
+                    </ul> */}
 
                     
                    <div className='flex'>

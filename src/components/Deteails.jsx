@@ -32,7 +32,7 @@ function Deteails() {
         <div>
             <Header />
             <div className="relative">
-                <FavoriteButton title={original_title} overview={overview} buttonContent={activeMovieId} />
+                <FavoriteButton title={original_title} overview={overview} buttonContent={activeMovieId} movieId={movieId} />
                 <VideoBackground movieId={id}  />
                 
 
